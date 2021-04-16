@@ -11,7 +11,7 @@ import Dimensions from './Dimensions';
 import Screenshot from './Screenshot';
 import { ExternalSun } from './Sun';
 import Labels from '../graphics2d/Labels';
-import { PLANET_SCALE_ID } from '../gui/Gui';
+import { PLANET_SCALE_ID, HIDE_ORBITS } from '../gui/Gui';
 import { IS_CAPTURE, DEG_TO_RAD, KM } from '../core/constants';
 		
 let stats;
@@ -72,6 +72,9 @@ export default class JSOrreryScene {
 			this.bodyScale = val;
 			this.draw();
 		});
+
+		const toggleOrbits = () => this.orbitLinesManager.hideAllOrbits();
+		gui.addBtn('Hide orbits', HIDE_ORBITS, toggleOrbits , 't')
 
 		this.orbitLinesManager = new OrbitLinesManager(scenario.usePhysics);
 		this.tracerManager = new TracerManager(this.root);

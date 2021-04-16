@@ -48,26 +48,6 @@ function lightenDarkenColor(hex, amount) {
 
 
 function drawConstellations(rendered) {
-
-	const material = new LineBasicMaterial({
-		color: pxRatio === 1 ? 0x222222 : 0x333333
-	});
-
-	Object.keys(Constellations).forEach(fromName => {
-		const toArr = Constellations[fromName];
-		const fromPoint = namedStars[fromName];
-
-		toArr.forEach(toName => {
-			const toPoint = namedStars[toName];
-			if (!toPoint || !fromPoint) return;
-			
-			const orbitGeom = new Geometry();
-			orbitGeom.vertices = [fromPoint, toPoint];
-			const line = new Line(orbitGeom, material);
-			line.frustumCulled = false;
-			rendered.add(line);
-		});
-	});
 }
 
 function generateStars(shaders, stars, starTexture, size, rendered) {

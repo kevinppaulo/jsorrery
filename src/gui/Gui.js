@@ -17,6 +17,7 @@ export const LOOKAT_ID = 'lookAt';
 export const LOOKFROM_ID = 'lookFrom';
 export const DELTA_T_ID = 'deltaT';
 export const GEOLOC_ID = 'geoloc';
+export const HIDE_ORBITS = 'hideOrbits';
 
 function hideContent(content) {
 	TweenMax.killTweensOf(content);
@@ -141,6 +142,8 @@ export default class Gui {
 		if (classes) c.addClass('dropdown');
 		c.append(widget);
 	}
+
+	//play
 
 	setOnChange(id, defaultOnChange) {
 		const label = this.getLabel(id).find('.valDisplay');
